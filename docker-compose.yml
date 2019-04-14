@@ -1,0 +1,10 @@
+version: '2.1'
+
+services:
+  app:
+    image: test_kube
+    command: crystal spec
+    environment:
+      KEMAL_ENV: test
+    ports:
+      - 3000:3000

@@ -1,0 +1,18 @@
+name: test_kube
+version: 0.1.0
+
+authors:
+  - constxife <constxife@yandex.ru>
+
+targets:
+  test_kube:
+    main: src/test_kube.cr
+
+crystal: 0.27.1
+
+license: MIT
+
+dependencies:
+  kemal:
+    github: kemalcr/kemal
+    version: 0.25.1
