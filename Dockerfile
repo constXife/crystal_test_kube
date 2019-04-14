@@ -15,6 +15,6 @@ ENV KEMAL_ENV production
 
 COPY --from=build-env /app/bin/test_kube /app/test_kube
 
-EXPOSE 3000
+EXPOSE 80
 
 CMD ["/app/test_kube"]
