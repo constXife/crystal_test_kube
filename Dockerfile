@@ -12,9 +12,10 @@ FROM scratch
 WORKDIR /app
 
 ENV KEMAL_ENV production
+ENV HTTP_PORT 80
 
 COPY --from=build-env /app/bin/test_kube /app/test_kube
 
-EXPOSE 80
+EXPOSE $HTTP_PORT
 
 CMD ["/app/test_kube"]
