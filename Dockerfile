@@ -1,11 +1,12 @@
-FROM alpine:latest as build-env
-
-RUN apk update && apk add crystal shards build-base libressl-dev zlib-dev upx
+FROM alpine:3.16 as build-env
+RUN apk add --update --no-cache --force-overwrite crystal shards build-base musl-dev pcre-dev libxml2-dev openssl-dev  \
+    openssl-libs-static tzdata yaml-static zlib-static
 
 WORKDIR /app
 COPY . /app
 
-RUN shards install && shards build --production --release --static && strip bin/test_kube && upx -9 bin/test_kube
+RUN shards install
+RUN shards build --production --release --static --no-debug
 
 FROM scratch
 
