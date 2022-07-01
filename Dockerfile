@@ -13,7 +13,7 @@ FROM scratch
 WORKDIR /app
 
 ENV KEMAL_ENV production
-ENV HTTP_PORT 80
+ENV HTTP_PORT 3000
 
 COPY --from=build-env /app/bin/test_kube /app/test_kube
 

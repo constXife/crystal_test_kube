@@ -2,9 +2,10 @@ version: '2.1'
 
 services:
   app:
-    image: test_kube
-    command: crystal spec
+    build:
+      context: .
+      dockerfile: Dockerfile
     environment:
-      KEMAL_ENV: test
+      KEMAL_ENV: production
     ports:
       - "3000:3000"
